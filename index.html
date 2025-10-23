@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="robots" content="noindex,nofollow">
     <title>Verbund Avatar Demo</title>
     <style>
@@ -19,12 +19,13 @@
             margin: 0;
             padding: 0;
             overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .logo-container {
             position: fixed;
-            top: 30px;
-            left: 30px;
+            top: calc(10px + env(safe-area-inset-top, 0px));
+            left: calc(10px + env(safe-area-inset-left, 0px));
             z-index: 10000;
         }
 
@@ -40,12 +41,16 @@
             top: 0;
             left: 0;
             width: 100vw;
-            height: 100vh;
-            transition: all 0.3s ease;
+            height: 100dvh; /* modern viewport */
+            height: var(--app-dvh, 100vh); /* JS fallback */
+            transition: opacity 0.3s ease;
             overflow: hidden;
             background: #000;
             opacity: 0;
             visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         #avatar-embed.show {
@@ -53,33 +58,31 @@
             visibility: visible;
         }
 
-        #avatar-embed.expand {
-            width: 100vw;
-            height: 100vh;
-        }
+        #avatar-embed.expand { padding: 12px; }
 
         #avatar-container {
-            width: 100%;
-            height: 100%;
             position: relative;
+            width: min(100vw - 32px, calc((var(--app-dvh, 100vh) - 32px) * 16 / 9));
+            height: min(calc(var(--app-dvh, 100vh) - 32px), calc((100vw - 32px) * 9 / 16));
+            border-radius: 12px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
         }
 
-        #avatar-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
+        #avatar-container iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
         .loading-message {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.85);
             font-size: 18px;
             text-align: center;
             z-index: 9998;
             animation: pulse 2s ease-in-out infinite;
+            pointer-events: none;
         }
 
         @keyframes pulse {
@@ -89,25 +92,21 @@
 
         /* Mobile responsive */
         @media (max-width: 768px) {
-            .logo-container {
-                top: 20px;
-                left: 20px;
-            }
-
-            .logo-img {
-                height: 40px;
-            }
+            .logo-container { top: calc(16px + env(safe-area-inset-top, 0px)); left: 16px; }
+            .logo-img { height: 40px; }
+            .loading-message { font-size: 16px; }
         }
 
         @media (max-width: 480px) {
-            .logo-container {
-                top: 15px;
-                left: 15px;
-            }
+            .logo-container { top: calc(12px + env(safe-area-inset-top, 0px)); left: 12px; }
+            .logo-img { height: 35px; }
+            .loading-message { font-size: 15px; }
+        }
 
-            .logo-img {
-                height: 35px;
-            }
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            #avatar-embed { transition: none; }
+            .loading-message { animation: none; }
         }
     </style>
 </head>
@@ -120,6 +119,18 @@
         Initializing avatar...
     </div>
 
+    <script>
+        // Viewport height fallback for browsers without 100dvh
+        (function(){
+            function setDvh(){
+                var h = window.innerHeight;
+                document.documentElement.style.setProperty('--app-dvh', h + 'px');
+            }
+            setDvh();
+            window.addEventListener('resize', setDvh);
+            window.addEventListener('orientationchange', setDvh);
+        })();
+    </script>
     <script>
         !function(window) {
             const host = "https://labs.heygen.com";
