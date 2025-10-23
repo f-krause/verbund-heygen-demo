@@ -122,13 +122,20 @@
     <script>
         // Viewport height fallback for browsers without 100dvh
         (function(){
-            function setDvh(){
-                var h = window.innerHeight;
-                document.documentElement.style.setProperty('--app-dvh', h + 'px');
+            function isMobile() {
+                return window.matchMedia("(max-width: 768px)").matches;
             }
-            setDvh();
-            window.addEventListener('resize', setDvh);
-            window.addEventListener('orientationchange', setDvh);
+
+            if (!isMobile()) {
+                console.log("Using CSS 100dvh for viewport height.");
+                function setDvh(){
+                    var h = window.innerHeight;
+                    document.documentElement.style.setProperty('--app-dvh', h + 'px');
+                }
+                setDvh();
+                window.addEventListener('resize', setDvh);
+                window.addEventListener('orientationchange', setDvh);
+            }
         })();
     </script>
     <script>
