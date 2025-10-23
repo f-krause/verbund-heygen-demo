@@ -7,4 +7,4 @@ Topics currently included:
 - Environmental & Regulatory – permits, EIA, water rights, ESG compliance
 - Internal Processes – RfQ steps, SAP objects, business case flow
 
-In short: anything about power plants, costs, processes, or the right Ferbund contact person — I’ve got you covered! ⚡
+In short: anything about power plants, costs, processes, or responsible Verbund contact persons.
