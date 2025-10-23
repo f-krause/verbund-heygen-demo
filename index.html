@@ -134,24 +134,24 @@
     <script>
         !function(window) {
             const host = "https://labs.heygen.com";
-            const url = host + "/guest/streaming-embed?share=eyJxdWFsaXR5IjoiaGlnaCIsImF2YXRhck5hbWUiOiJQZWRyb19Qcm9mZXNzaW9uYWxMb29rX3B1YmxpYyIsInByZXZpZXdJbWciOiJodHRwczovL2ZpbGVzMi5oZXlnZW4uYWkvYXZhdGFyL3YzLzQ1ZjdkZTRkYTMyMjQ4ZWY5NTJhOGRiMzI1YWVlMjU4XzU1OTEwL3ByZXZpZXdfdGFyZ2V0LndlYnAiLCJuZWVkUmVtb3ZlQmFja2dyb3VuZCI6dHJ1ZSwia25vd2xlZGdlQmFzZUlkIjoiYmM2MjgzZDQ1ZmRkNDNjNzg4OTFmNjQ4Mzg3MjJhNWYiLCJ1c2VybmFtZSI6IjI5Y2JiODc5ZDM3MjQ0MDViNDk0NzE4ODMzNGI1YzRmIn0%3D&inIFrame=1";
-            
+            const url = host + "/guest/streaming-embed?share=eyJxdWFsaXR5IjoiaGlnaCIsImF2YXRhck5hbWUiOiJQZWRyb19DYXN1YWxMb29rX3B1YmxpYyIs%0D%0AInByZXZpZXdJbWciOiJodHRwczovL2ZpbGVzMi5oZXlnZW4uYWkvYXZhdGFyL3YzLzRjYTdlYjc0%0D%0ANDJmNzRmZTBiYmNjMjA1ZjNmZTZmMjcxXzU1OTAwL3ByZXZpZXdfdGFyZ2V0LndlYnAiLCJuZWVk%0D%0AUmVtb3ZlQmFja2dyb3VuZCI6ZmFsc2UsImtub3dsZWRnZUJhc2VJZCI6ImJjNjI4M2Q0NWZkZDQz%0D%0AYzc4ODkxZjY0ODM4NzIyYTVmIiwidXNlcm5hbWUiOiIyOWNiYjg3OWQzNzI0NDA1YjQ5NDcxODgz%0D%0AMzRiNWM0ZiJ9&inIFrame=1";
+
             const wrapDiv = document.createElement("div");
             wrapDiv.id = "avatar-embed";
-            
+
             const container = document.createElement("div");
             container.id = "avatar-container";
-            
+
             const iframe = document.createElement("iframe");
             iframe.allowFullscreen = false;
             iframe.title = "Interactive Avatar";
             iframe.role = "dialog";
             iframe.allow = "microphone";
             iframe.src = url;
-            
+
             let visible = false;
             let initial = false;
-            
+
             window.addEventListener("message", (e) => {
                 if (e.origin === host && e.data && e.data.type && "streaming-embed" === e.data.type) {
                     if ("init" === e.data.action) {
@@ -171,7 +171,7 @@
                     }
                 }
             });
-            
+
             container.appendChild(iframe);
             wrapDiv.appendChild(container);
             document.body.appendChild(wrapDiv);
