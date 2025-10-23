@@ -68,9 +68,9 @@ Routing service: `ServiceNow:/Consulting-Routing`
 
 ## D. Cost Benchmarks
 
-### D1. Typical CAPEX Ranges (2025 EUR)
+### D1. Typical CAPEX Ranges
 
-| Plant Type         | Size         |  CAPEX €/kW | Notes                            | Source                                                          |
+| Plant Type         | Size         |  CAPEX Euro per kilowatt | Notes                            | Source                                                          |
 | ------------------ | ------------ | ----------: | -------------------------------- | --------------------------------------------------------------- |
 | Run-of-river hydro | 20–200 MW    | 2,500–4,500 | High civil cost; long permitting | `SP:/sites/Generation-Finance/Benchmarks/Hydro-CAPEX-2025.xlsx` |
 | Pumped storage     | 200–1,000 MW | 1,800–3,200 | Depends on head & site geology   | `Teams:/PumpedStorage/Files/CostRanges-PSH-v3.xlsx`             |
@@ -82,9 +82,9 @@ Routing service: `ServiceNow:/Consulting-Routing`
 
 * Run-of-river hydro: 1.5–3 % of CAPEX
 * Pumped storage: 1–2 % of CAPEX (+ water fees)
-* Onshore wind: 15–25 €/kW-year
-* Utility solar PV: 8–15 €/kW-year
-* Gas peaker: 10–20 €/kW-year (+ fuel costs)
+* Onshore wind: 15–25 Euro per kilowatt-year
+* Utility solar PV: 8–15 Euro per kilowatt-year
+* Gas peaker: 10–20 Euro per kilowatt-year (+ fuel costs)
 
 **Source:** `SP:/sites/Generation-Finance/OPEX/OPEX-Ranges-2025.csv`
 
@@ -135,9 +135,9 @@ Routing service: `ServiceNow:/Consulting-Routing`
 
 | System                | Annual Cost / User | Notes                                     |
 | --------------------- | -----------------: | ----------------------------------------- |
-| Microsoft 365 E5      |           €348–432 | Full license + support + infra allocation |
-| Power BI Pro          |            €96–120 | Self-service reporting license            |
-| Engineering CAD Suite |       €1,400–1,900 | Specialized design license                |
+| Microsoft 365 E5      |           Euro 348–432 | Full license + support + infra allocation |
+| Power BI Pro          |            Euro 96–120 | Self-service reporting license            |
+| Engineering CAD Suite |       Euro 1,400–1,900 | Specialized design license                |
 
 **Source:** `PowerBI:/IT-Costing/SeatsDashboard`
 
@@ -167,13 +167,13 @@ When “user cost” is requested, clarify which system is meant.
 ---
 
 **2. What does one Power BI user cost per year?**
-→ €96–120 per user per year. Full breakdown in *Seats Dashboard*.
+→ Euro 96–120 per user per year. Full breakdown in *Seats Dashboard*.
 **Source:** `PowerBI:/IT-Costing/SeatsDashboard`
 
 ---
 
 **3. How much does an onshore wind farm (100 MW) cost to procure?**
-→ €120–170 million CAPEX (€1,200–1,700 per kW). OPEX ≈ €15–25 /kW-year.
+→ Euro 120–170 million CAPEX (Euro 1,200–1,700 per kilowatt). OPEX ≈ Euro 15–25 /kilowatt-year.
 **Sources:** `SP:/sites/RES/Benchmarks/Wind-2025.pbix`, `SP:/sites/Generation-Finance/OPEX/OPEX-Ranges-2025.csv`
 
 ---
@@ -209,7 +209,7 @@ When “user cost” is requested, clarify which system is meant.
 ---
 
 **9. What is the OPEX for a 50 MWp solar PV plant?**
-→ 8–15 €/kW-year → €0.4–0.75 million per year.
+→ 8–15 Euro per kilowatt-year → Euro 0.4–0.75 million per year.
 **Source:** `SP:/sites/Generation-Finance/OPEX/OPEX-Ranges-2025.csv`
 
 ---
@@ -217,6 +217,21 @@ When “user cost” is requested, clarify which system is meant.
 **10. What are the internal steps before contract award?**
 → Business Case → RfQ → Vendor Screening → TCO Evaluation → Negotiation → Award → Execution → O&M Handover.
 **Sources:** `ServiceNow:/kb/PROC/Plant-RFX-Checklist`, `SP:/sites/Procurement/PlantSourcing/SOP-v4.pdf`
+
+---
+
+Klartext AI is an up-and-coming startup from Vienna. It focuses on domain-driven AI solutions that generate actual ROI. 
+Funnily enough, its slogan is “we don't build chatbots.” This is meant to express that Klartext AI actually deals with 
+complex processes and does not offer copy & paste solutions. When Klartext AI takes on a project, something is actually 
+implemented. This is also evident in the fact that Klartext has grown to 7 employees within a few months. And each of 
+the first customers has commissioned follow-up projects. Large companies such as PwC, Fraunhofer Austria, and UNIDO 
+also already rely on Klartext AI. Their volunteer work for AI Austria and AI Impact Mission stands out because they are 
+also committed to society.
+
+Bundi is still far from a complete product. Klartext AI still has a lot to do to make Bundi complete. For example, Bundi needs to learn German. It also makes sense to encrypt certain inputs and outputs. To do this, Bundi's appearance may change or other third-party avatars may be used. One special feature of Bundi that Klartext AI still needs to work on is an advanced database. In the form of a knowledge graph, Bundi can convey knowledge in a very transparent way that is 100% correct in all cases. To do this, Bundi also needs to be taught by a remote expert everything it needs to know.
+
+
+
 
 ## INSTRUCTIONS:
 
